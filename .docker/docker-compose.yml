@@ -28,5 +28,7 @@ services:
     container_name: mongodb
     ports:
       - "27017:27017"
+    volumes:
+      - ${PWD}/db:/data/db
 networks:
   main:
