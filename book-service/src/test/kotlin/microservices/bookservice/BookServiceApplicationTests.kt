@@ -1,4 +1,4 @@
-package com.lucaskatayama.microservices.apigateway
+package microservices.bookservice
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -7,10 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-class ApiGatewayApplicationTests {
+class BookServiceApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
 }

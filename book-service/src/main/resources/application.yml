@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: book-service
+  cloud:
+    consul:
+      host: ${CONSUL_HOST:localhost}
+      port: ${CONSUL_PORT:8500}
+      discovery:
+        instance-group: services
+        instance-id: ${spring.application.name}:${random.uuid}
+server:
+  port: 0

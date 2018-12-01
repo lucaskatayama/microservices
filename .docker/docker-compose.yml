@@ -23,5 +23,10 @@ services:
       - CONSUL_BIND_INTERFACE=eth0
     networks:
       - main
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
 networks:
   main:

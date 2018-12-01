@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    consul:
+      host: ${CONSUL_HOST:localhost}
+      port: ${CONSUL_PORT:8500}
+      discovery:
+        instance-group: api-gateway
+        instance-id: ${spring.application.name}:${random.uuid}
+server:
+  port: 8080
+
+management:
+  security:
+
+  endpoint:
+    health:
+      show-details: when_authorized
+
+zuul:
+  prefix: /api
+  routes:
+    book:
+      service-id: book-service
+      path: /book/**
+
