@@ -10,7 +10,7 @@ import java.security.SecureRandom
 
 @RestController
 @RequestMapping
-class BookController(val repo: BookRepository) {
+class BookController(val repo: BookRepository, val authorClient: AuthorClient) {
 
     @GetMapping
     fun get(
@@ -39,4 +39,10 @@ class BookController(val repo: BookRepository) {
 
     @GetMapping("/{id}")
     fun getById(@PathVariable id: String) = repo.findByIdEquals(id)
+
+    @GetMapping("/{id}/author")
+    fun getAuthorByBookId(@PathVariable id: String): Author {
+        val book = repo.findByIdEquals(id).get()
+        return authorClient.get(book.author)
+    }
 }

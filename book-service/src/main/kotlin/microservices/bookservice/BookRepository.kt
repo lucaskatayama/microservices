@@ -14,7 +14,8 @@ data class Book(@JsonIgnore @Id val _id: String? = null,
                 var isbn: String = "",
                 var id: String = "",
                 @JsonFormat(pattern = "yyyy-MM-dd")
-                var publishedAt: Date,
+                var publishedAt: Date? = null,
+                var author: String = "",
                 var imgUrl: String = "")
 
 @Repository
